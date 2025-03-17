@@ -199,11 +199,19 @@ public class Fracture : MonoBehaviour
     /// </summary>
     /// <param name="preFracture">True if this object is being pre-fractured. This will freeze all of the fragments.</param>
     /// <returns></returns>
-    private GameObject CreateFragmentTemplate()
+    protected virtual GameObject CreateFragmentTemplate()
     {
         // If pre-fracturing, make the fragments children of this object so they can easily be unfrozen later.
         // Otherwise, parent to this object's parent
         GameObject obj = new GameObject();
+        
+        ModifyTemplateObject(obj);
+
+        return obj;
+    }
+
+    protected virtual void ModifyTemplateObject(GameObjet obj)
+    {
         obj.name = "Fragment";
         obj.tag = this.tag;
 
@@ -239,8 +247,6 @@ public class Fracture : MonoBehaviour
         {
             CopyFractureComponent(obj);
         }
-
-        return obj;
     }
 
     /// <summary>
