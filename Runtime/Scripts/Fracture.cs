@@ -210,7 +210,7 @@ public class Fracture : MonoBehaviour
         return obj;
     }
 
-    protected virtual void ModifyTemplateObject(GameObjet obj)
+    protected virtual void ModifyTemplateObject(GameObject obj)
     {
         obj.name = "Fragment";
         obj.tag = this.tag;
